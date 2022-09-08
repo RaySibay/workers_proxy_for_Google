@@ -46,7 +46,7 @@ if (url.protocol == 'http:') {
 
 var key=url.href;
 var ikey1='tbm=isch';
-var ikey2='imghp';
+var ikey2='img';
 if ((key.search(ikey1)==-1)&(key.search(ikey2)==-1)){
   var upstream_domain = upstream;
 }else{
