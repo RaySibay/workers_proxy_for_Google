@@ -7,7 +7,7 @@
 - https://cloud.tencent.com/developer/article/1948298
 
 #### How to use/使用方法：
-- 可以参考这篇文章： https://zhuanlan.zhihu.com/p/445303816
+- Read this article/可以参考这篇文章： https://zhuanlan.zhihu.com/p/445303816
 
 参考：
 1. https://github.com/klightso/Workers-Proxy-1
