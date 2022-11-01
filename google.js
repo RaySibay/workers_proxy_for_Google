@@ -1,27 +1,37 @@
-// Website you intended to retrieve for users.
+// 反代目标网站
 const upstream = 'ipv6.google.com'
 const upstream_v4 = 'www.google.com'
 
-// Countries and regions where you wish to suspend your service.
+// 访问区域黑名单（按需设置）.
 const blocked_region = ['TK']
 
 const replace_dict = {
 '$upstream': '$custom_domain',
 'gstatic.com': 'gstatic.cn',
+
 'ajax.googleapis.com': 'ajax.lug.ustc.edu.cn',
 'fonts.googleapis.com': 'fonts.googleapis.cn',
 'themes.googleusercontent.com': 'google-themes.lug.ustc.edu.cn',
-'www.google.com/recaptcha/': 'www.recaptcha.net/recaptcha/',
+'www.gravatar.com/avatar':'dn-qiniu-avatar.qbox.me/avatar',
+
 'www.google.com.hk': '$custom_domain',
 'www.google.co.jp': '$custom_domain',
-'www.google.com/': '$custom_domain/',
 'www.google.com.sg': '$custom_domain',
-'www.gravatar.com/avatar':'dn-qiniu-avatar.qbox.me/avatar',
-'translate.google.com.hk': 'translate.google.cn',
-'translate.google.co.jp': 'translate.google.cn',
-'translate.google.com/': 'translate.google.cn/',
-'translate.googleapis.com': 'translate.googleapis.cn',
-'googleusercontent.com':'googleusercontent.cn'
+'books.google.com.hk': '$custom_domain',
+'books.google.co.jp': '$custom_domain',
+'books.google.com.sg': '$custom_domain',
+'maps.google.com.hk': '$custom_domain',
+'maps.google.co.jp': '$custom_domain',
+'maps.google.com.sg': '$custom_domain',
+'scholar.google.com.hk': '$custom_domain',
+'scholar.google.com.sg': '$custom_domain',
+'scholar.google.com.jp': '$custom_domain',
+
+'scholar.google.com': '$custom_domain',
+'maps.google.com': '$custom_domain',
+'books.google.com': '$custom_domain',
+'www.google.com': 'www.google.cn',
+
 }
 
 addEventListener('fetch', event => {
@@ -31,7 +41,7 @@ event.respondWith(fetchAndApply(event.request));
 async function fetchAndApply(request) {
 
 const region = request.headers.get('cf-ipcountry').toUpperCase();
-const ip_address = request.headers.get('cf-connecting-ip');
+//const ip_address = request.headers.get('cf-connecting-ip');
 const user_agent = request.headers.get('user-agent');
 
 let response = null;
@@ -46,7 +56,7 @@ if (url.protocol == 'http:') {
 
 var key=url.href;
 var ikey1='tbm=isch';
-var ikey2='img';
+var ikey2='/img';
 if ((key.search(ikey1)==-1)&(key.search(ikey2)==-1)){
   var upstream_domain = upstream;
 }else{
@@ -86,7 +96,7 @@ if (blocked_region.includes(region)) {
     new_response_headers.delete('clear-site-data');
 
     const content_type = new_response_headers.get('content-type');
-    if (content_type.includes('text/html')) {// && content_type.includes('UTF-8')
+    if (content_type.includes('text/html')&& content_type.includes('UTF-8')) {// && content_type.includes('UTF-8')
         original_text = await replace_response_text(original_response_clone, upstream_domain, url_host);
     } else {
         original_text = original_response_clone.body
