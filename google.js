@@ -7,6 +7,9 @@ const blocked_region = ['TK']
 
 const replace_dict = {
 '$upstream': '$custom_domain',
+
+'www.google.com/': '你的子域名/',
+ 
 'gstatic.com': 'gstatic.cn',
 
 'ajax.googleapis.com': 'ajax.lug.ustc.edu.cn',
@@ -30,7 +33,7 @@ const replace_dict = {
 'scholar.google.com': '$custom_domain',
 'maps.google.com': '$custom_domain',
 'books.google.com': '$custom_domain',
-'www.google.com': 'www.google.cn',
+
 
 }
 
