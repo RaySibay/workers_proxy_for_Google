@@ -1,14 +1,15 @@
 // 反代目标网站
-const upstream = 'ipv6.google.com'
-const upstream_v4 = 'www.google.com'
+const upstream = 'ipv6.google.com.hk'
+const upstream_v4 = 'www.google.com.hk'
 
 // 访问区域黑名单（按需设置）.
 const blocked_region = ['TK']
 
+//资源重定向
 const replace_dict = {
 '$upstream': '$custom_domain',
 
-'www.google.com/': '你的子域名/',
+'www.google.com/': 'YOUR SUB DOMAIN/', //填入你的子域名
  
 'gstatic.com': 'gstatic.cn',
 
@@ -17,7 +18,6 @@ const replace_dict = {
 'themes.googleusercontent.com': 'google-themes.lug.ustc.edu.cn',
 'www.gravatar.com/avatar':'dn-qiniu-avatar.qbox.me/avatar',
 
-'www.google.com.hk': '$custom_domain',
 'www.google.co.jp': '$custom_domain',
 'www.google.com.sg': '$custom_domain',
 'books.google.com.hk': '$custom_domain',
@@ -26,14 +26,8 @@ const replace_dict = {
 'maps.google.com.hk': '$custom_domain',
 'maps.google.co.jp': '$custom_domain',
 'maps.google.com.sg': '$custom_domain',
-'scholar.google.com.hk': '$custom_domain',
-'scholar.google.com.sg': '$custom_domain',
-'scholar.google.com.jp': '$custom_domain',
-
-'scholar.google.com': '$custom_domain',
 'maps.google.com': '$custom_domain',
-'books.google.com': '$custom_domain',
-
+'books.google.com': '$custom_domain'
 
 }
 
@@ -57,6 +51,7 @@ if (url.protocol == 'http:') {
     return response;
 }
 
+//检查是否为图片搜索
 var key=url.href;
 var ikey1='tbm=isch';
 var ikey2='/img';
