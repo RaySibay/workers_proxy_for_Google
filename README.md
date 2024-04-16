@@ -17,12 +17,12 @@
 https://[你绑定的域名]/search?q=%s
 5. 将其改为默认设置，即可在浏览器地址栏搜索
 
-#### 2024 Update: 
-时过境迁，谷歌翻译也终于没了中国版。本来想着谷歌翻译api的镜像非常好做，没想到github似乎没有相关的代码库，就顺便新增了google_translate_api.js，和部署谷歌镜像类似，复制粘贴，并绑定自己的域名即可。
+#### 2024 Update: 部署谷歌翻译API镜像
+时过境迁，谷歌翻译也终于没了中国版。本来想着谷歌翻译api的镜像非常好做，没想到github似乎没有相关的代码库，就顺便新增了google_translate_api.js，和部署谷歌镜像类似，复制粘贴，并绑定二级域名即可。
 翻译API镜像，个人推荐结合翻译插件食用：
 - 划词翻译：https://hcfy.app/blog/2022/09/28/ggg#%E6%96%B9%E6%A1%88-c%E4%BD%BF%E7%94%A8%E9%95%9C%E5%83%8F%E5%9C%B0%E5%9D%80%E6%9C%80%E7%AE%80%E5%8D%95
 - 沉浸式翻译：https://github.com/immersive-translate/immersive-translate/issues/307
-- CopyTranslate:https://copytranslator.github.io/guide/questions.html
+- CopyTranslate: https://copytranslator.github.io/guide/questions.html
 
 参考：
 1. https://github.com/klightso/Workers-Proxy-1
