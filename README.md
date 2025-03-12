@@ -1,3 +1,6 @@
+据观察，谷歌已经加大了对cloudflare回源ip的封锁力度，直接反代api和ipv6.google.com的时代基本结束了，仅保留此项目作为参考。
+
+
 # workers_proxy_for_Google
 - Due to Google had ban the ipv4 address of cloudflare, so i use ipv6.google.com as back-to-source hostname for google search, but ipv6.google.com doesn't support image search, so when using image search, it will jump back to www.google.com automatically.
 - 由于谷歌搜索屏蔽了 cloudflare 回源的ipv4地址，因此在这里我使用ipv6.google.com作为回源主机名，但是ipv6.google.com不支持图片搜索，又做了一些额外的修改以在使用图片搜索的时候跳转回www.google.com。
